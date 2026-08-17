@@ -1,7 +1,11 @@
 # RIDE Lab
 
-RIDE Lab builds agent-native systems on vLLM-HUST. SAGE is the lab's flagship
-open-source product for programming and orchestrating those systems.
+RIDE Lab builds agent-native systems on vLLM-HUST and stewards the core repositories
+of [SAGE](https://sage.org.ai/).
+
+SAGE — **Streaming-Augmented Generative Execution** — is the shared flagship product
+and technical vision of the IntelliStream research ecosystem: applying
+streaming-computing principles to LLM inference and agent execution.
 
 Our research spans agent programming and orchestration, tool use, RAG, memory,
 evaluation, application-level state, real workloads, and reproducible end-to-end
@@ -9,6 +13,14 @@ benchmarks. RIDE is the lab identity, not an additional runtime layer: products 
 research projects call vLLM-HUST directly or through SAGE.
 
 SAGE product website: [sage.org.ai](https://sage.org.ai/)
+
+## Stewardship, Not Exclusive Ownership
+
+The SAGE core series lives under the `RIDE-Lab` GitHub namespace because RIDE Lab is
+its principal engineering steward. That namespace is an operational home for code,
+reviews, releases, and product documentation; it does not make SAGE a RIDE-exclusive
+product. DataSys and vLLM-HUST keep their own technical ownership while contributing
+the data-system and inference capabilities that SAGE integrates.
 
 ## System Boundary
 
@@ -30,15 +42,15 @@ hardware backends remain in [vLLM-HUST](https://github.com/vllm-hust).
 
 - [IntelliStream](https://github.com/intellistream) incubates early research ideas across the ecosystem.
 - **RIDE Lab** conducts agent-native systems research and turns mature results into open-source products.
-- **SAGE** is RIDE Lab's flagship product for agent programming, RAG, workflow, evaluation, and service orchestration.
+- **SAGE** is the ecosystem's shared flagship product for streaming-augmented LLM and agent execution; RIDE Lab stewards its core repositories and agent-facing surfaces.
 - [DataSys](https://github.com/DataSysResearch) provides framework-neutral stream, graph, vector, index, update, query, and benchmark infrastructure.
 - [vLLM-HUST](https://github.com/vllm-hust) develops model execution, KV/cache scheduling, compilation, kernels, and hardware acceleration.
 
-## Products
+## SAGE Core Stewardship
 
 ### SAGE
 
-- [SAGE](https://github.com/RIDE-Lab/SAGE) - RIDE Lab's agent programming and orchestration product.
+- [SAGE](https://github.com/RIDE-Lab/SAGE) - the shared product core, stewarded by RIDE Lab.
 - [SAGE Docs](https://github.com/RIDE-Lab/SAGE-Docs) - product documentation and the source for [sage.org.ai](https://sage.org.ai/).
 - [SAGE Agentic](https://github.com/RIDE-Lab/sage-agentic)
 - [SAGE RAG](https://github.com/RIDE-Lab/sage-rag)
