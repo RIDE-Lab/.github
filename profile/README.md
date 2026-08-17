@@ -1,52 +1,76 @@
-# SAGE
+# RIDE Lab
 
-SAGE builds open-source systems for agent, retrieval-augmented generation, workflow, and service orchestration.
+RIDE Lab builds agent-native systems on vLLM-HUST. SAGE is the lab's flagship
+open-source product for programming and orchestrating those systems.
 
-Our work spans agent coordination, tool use, RAG pipelines, evaluation, safety, application-level state semantics, visual workflow authoring, tutorials, and reproducible application benchmarks.
+Our research spans agent programming and orchestration, tool use, RAG, memory,
+evaluation, application-level state, real workloads, and reproducible end-to-end
+benchmarks. RIDE is the lab identity, not an additional runtime layer: products and
+research projects call vLLM-HUST directly or through SAGE.
 
-Website: [sage.org.ai](https://sage.org.ai/)
+SAGE product website: [sage.org.ai](https://sage.org.ai/)
+
+## System Boundary
+
+```text
+Sage Mate and other applications
+              |
+              v
+        SAGE and research systems
+              |
+              v
+          vLLM-HUST
+```
+
+RIDE repositories own caller-side agent systems, policies, workloads, and evaluations.
+Model execution, KV-cache implementation, decode scheduling, kernels, compilation, and
+hardware backends remain in [vLLM-HUST](https://github.com/vllm-hust).
 
 ## Ecosystem
 
 - [IntelliStream](https://github.com/intellistream) incubates early research ideas across the ecosystem.
-- **SAGE** owns application, agent, RAG, workflow, evaluation, and service-orchestration systems.
+- **RIDE Lab** conducts agent-native systems research and turns mature results into open-source products.
+- **SAGE** is RIDE Lab's flagship product for agent programming, RAG, workflow, evaluation, and service orchestration.
 - [DataSys](https://github.com/DataSysResearch) provides framework-neutral stream, graph, vector, index, update, query, and benchmark infrastructure.
 - [vLLM-HUST](https://github.com/vllm-hust) develops model execution, KV/cache scheduling, compilation, kernels, and hardware acceleration.
 
-## Projects
+## Products
 
-### Core Platform
+### SAGE
 
-- [SAGE](https://github.com/SAGE-Research/SAGE) - application, agent, RAG, workflow, and service orchestration platform.
-- [SAGE Docs](https://github.com/SAGE-Research/SAGE-Docs) - documentation and the source for [sage.org.ai](https://sage.org.ai/).
-- [SAGE Agentic](https://github.com/SAGE-Research/sage-agentic)
-- [SAGE RAG](https://github.com/SAGE-Research/sage-rag)
-- [SAGE Eval](https://github.com/SAGE-Research/sage-eval)
-- [SAGE Studio](https://github.com/SAGE-Research/sage-studio)
-- [SAGE Tutorials](https://github.com/SAGE-Research/sage-tutorials)
+- [SAGE](https://github.com/RIDE-Lab/SAGE) - RIDE Lab's agent programming and orchestration product.
+- [SAGE Docs](https://github.com/RIDE-Lab/SAGE-Docs) - product documentation and the source for [sage.org.ai](https://sage.org.ai/).
+- [SAGE Agentic](https://github.com/RIDE-Lab/sage-agentic)
+- [SAGE RAG](https://github.com/RIDE-Lab/sage-rag)
+- [SAGE Eval](https://github.com/RIDE-Lab/sage-eval)
+- [SAGE Studio](https://github.com/RIDE-Lab/sage-studio)
+- [SAGE Tutorials](https://github.com/RIDE-Lab/sage-tutorials)
 
-### Tools and Integrations
+#### Product Modules and Integrations
 
-- [SAGE Agent for VS Code](https://github.com/SAGE-Research/sage-agent-vscode)
-- [SAGE Agentic Tool Use](https://github.com/SAGE-Research/sage-agentic-tooluse)
-- [SAGE Examples](https://github.com/SAGE-Research/sage-examples)
-- [SAGE Finetune](https://github.com/SAGE-Research/sage-finetune)
-- [SAGE GitHub Manager](https://github.com/SAGE-Research/sage-github-manager)
-- [SAGE Intent Library](https://github.com/SAGE-Research/sage-libs-intent)
-- [SAGE Mate](https://github.com/SAGE-Research/sage-mate)
-- [SAGE Refiner](https://github.com/SAGE-Research/sageRefiner)
-- [SAGE PyPI](https://github.com/SAGE-Research/sagepypi)
-- [SAGE Wiki](https://github.com/SAGE-Research/sage-wiki)
+- [SAGE Agent for VS Code](https://github.com/RIDE-Lab/sage-agent-vscode)
+- [SAGE Agentic Tool Use](https://github.com/RIDE-Lab/sage-agentic-tooluse)
+- [SAGE Examples](https://github.com/RIDE-Lab/sage-examples)
+- [SAGE Finetune](https://github.com/RIDE-Lab/sage-finetune)
+- [SAGE GitHub Manager](https://github.com/RIDE-Lab/sage-github-manager)
+- [SAGE Intent Library](https://github.com/RIDE-Lab/sage-libs-intent)
+- [SAGE Refiner](https://github.com/RIDE-Lab/sageRefiner)
+- [SAGE PyPI](https://github.com/RIDE-Lab/sagepypi)
+- [SAGE Wiki](https://github.com/RIDE-Lab/sage-wiki)
 
-### Benchmarks and Research Resources
+## Applications
 
-- [SAGE Benchmark](https://github.com/SAGE-Research/sage-benchmark)
-- [Agentic Tool-use Benchmark](https://github.com/SAGE-Research/sage-agentic-tooluse-benchmark)
-- [Agentic Tool-use SIAS](https://github.com/SAGE-Research/sage-agentic-tooluse-sias)
-- [RAG Benchmark](https://github.com/SAGE-Research/sage-rag-benchmark)
-- [Refiner Benchmark](https://github.com/SAGE-Research/sage-refiner-benchmark)
-- [Wiki-link Retrieval](https://github.com/SAGE-Research/wiki-link-retrieval)
-- [Neuromem Benchmark](https://github.com/SAGE-Research/neuromem-bench)
+- [Sage Mate](https://github.com/RIDE-Lab/sage-mate) - a continuously running agent application built with SAGE and backed by vLLM-HUST.
+
+## Research Projects and Benchmarks
+
+- [SAGE Benchmark](https://github.com/RIDE-Lab/sage-benchmark)
+- [Agentic Tool-use Benchmark](https://github.com/RIDE-Lab/sage-agentic-tooluse-benchmark)
+- [Agentic Tool-use SIAS](https://github.com/RIDE-Lab/sage-agentic-tooluse-sias)
+- [RAG Benchmark](https://github.com/RIDE-Lab/sage-rag-benchmark)
+- [Refiner Benchmark](https://github.com/RIDE-Lab/sage-refiner-benchmark)
+- [Wiki-link Retrieval](https://github.com/RIDE-Lab/wiki-link-retrieval)
+- [Neuromem Benchmark](https://github.com/RIDE-Lab/neuromem-bench)
 
 ### Achievements
 
@@ -68,6 +92,6 @@ Website: [sage.org.ai](https://sage.org.ai/)
 
 Projects graduate from IntelliStream when they have a clear public abstraction, named maintainers, reproducible evaluation, documentation, tests, licensing, and a sustainable release path.
 
-SAGE is not a data-engine or model-runtime umbrella. Framework-neutral data systems belong in DataSys, while model-runtime and hardware-execution projects belong in vLLM-HUST.
+RIDE Lab is not a data-engine or model-runtime umbrella. Framework-neutral data systems belong in DataSys, while model-runtime and hardware-execution projects belong in vLLM-HUST.
 
-See our [contribution guide](https://github.com/SAGE-Research/.github/blob/main/CONTRIBUTING.md), [security policy](https://github.com/SAGE-Research/.github/blob/main/SECURITY.md), and [support guide](https://github.com/SAGE-Research/.github/blob/main/SUPPORT.md).
+See our [contribution guide](https://github.com/RIDE-Lab/.github/blob/main/CONTRIBUTING.md), [security policy](https://github.com/RIDE-Lab/.github/blob/main/SECURITY.md), and [support guide](https://github.com/RIDE-Lab/.github/blob/main/SUPPORT.md).

@@ -2,7 +2,7 @@
 
 Do not report security vulnerabilities through public GitHub issues.
 
-For security-sensitive reports, contact the repository maintainers or SAGE organization owners through the security contact listed in the relevant repository. Include:
+For security-sensitive reports, contact the repository maintainers or RIDE Lab organization owners through the security contact listed in the relevant repository. Include:
 
 - The affected repository and version or commit.
 - A clear description of the issue.
