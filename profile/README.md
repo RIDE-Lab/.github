@@ -47,9 +47,25 @@ Control-plane projects may live in different GitHub organizations while
 sharing the same RIDE-Lab research architecture. Repository location does not
 change research-family membership.
 
-Active incubation lines remain anonymous while their repositories and papers
-are private. RIDE Lab publishes a project name, owner, repository link, and
-evidence summary only after the project reaches its explicit release gate.
+Repository access follows each project's release stage; a listed private
+repository may require organization access until its public release.
+
+- [SLO-Aware Agent Serving](https://github.com/intellistream/slo-aware-agent-serving) —
+  admission, calibrated prediction, fairness, and resource allocation for
+  mixed agent workloads.
+- [Agentic KV](https://github.com/intellistream/agentic-kv) — dependency-aware
+  future-reuse and recompute-cost prediction for agent state and KV decisions.
+- [VAMOS](https://github.com/RIDE-Lab/vamos) — VRAM-aware multi-model
+  orchestration under serving SLOs.
+- [Token-Budget Governor](https://github.com/intellistream/vllm-token-budget-governor-plugin) —
+  token-budget admission and overload control.
+- [Agent State Tiering](https://github.com/intellistream/vllm-agent-state-tiering) —
+  workflow-aware placement and prefetch across memory and storage tiers.
+- [Prefix Cache Routing Reliability](https://github.com/intellistream/prefix-cache-routing-reliability) —
+  failure-safe distributed prefix-cache routing and recovery.
+- [MottoServe](https://github.com/intellistream/llm-serving-motto-lab) — a
+  bounded evidence-and-analysis line; its historical planner mechanism is
+  stopped and is not presented as an active positive result.
 
 ## Decision Domains
 
@@ -75,8 +91,8 @@ automatically the underlying systems question.
 Projects may begin in private incubation, move to
 [IntelliStream](https://github.com/intellistream) for a second incubation
 stage, and graduate to the organization that best matches their mature
-technical ownership. Public pages do not expose private incubation locations,
-project identities, or repository links before release.
+technical ownership. Private incubation locations are not part of the
+displayed portfolio.
 
 Graduation requires a stable abstraction, named maintainers, reproducible
 evaluation, evidence-bounded claims, documentation, tests, licensing, and a
