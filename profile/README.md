@@ -12,6 +12,28 @@ quality, cost, and correctness contract.
 [Members](https://ride-lab.github.io/members.html) ·
 [GitHub organization](https://github.com/RIDE-Lab)
 
+## Control Plane at a Glance
+
+RIDE turns agent intent and live serving state into accountable execution
+decisions above one or more inference engines.
+
+| Stage | Inputs | Control-plane output |
+| --- | --- | --- |
+| **Observe** | Workflow readiness, tool waits, deadlines, quality and cost bounds, engine telemetry, and state/KV locality | A versioned decision-state snapshot |
+| **Decide** | The snapshot, engine capabilities, and policy constraints | Admission, scheduling, routing, placement, budget, state/KV, or recovery action with a reason |
+| **Actuate** | The selected action and an engine-neutral capability contract | A bounded engine command, safe fallback, and execution receipt |
+| **Verify** | Execution receipts, correctness signals, and matched outcomes | Provenance, SLO/quality/cost effect, and an explicit continue, revise, or stop decision |
+
+Each decision episode is recorded as **state -> action and reason -> actuation
+receipt -> matched outcome -> stop/go**. This makes policy behavior reviewable
+across engines, workloads, and hardware rather than hiding it in ad hoc serving
+scripts.
+
+RIDE builds cross-engine policy and coordination. It does not replace model
+kernels, inference-engine scheduling primitives, transport implementations,
+compiler/runtime internals, hardware backends, or application-level tool
+planning.
+
 ## Why Agent-Native?
 
 Agent workloads are not interchangeable chat requests. They expose DAG
