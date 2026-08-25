@@ -22,10 +22,10 @@ decisions above one or more inference engines.
 | **Observe** | Workflow readiness, tool waits, deadlines, quality and cost bounds, engine telemetry, and state/KV locality | A versioned decision-state snapshot |
 | **Decide** | The snapshot, engine capabilities, and policy constraints | Admission, scheduling, routing, placement, budget, state/KV, or recovery action with a reason |
 | **Actuate** | The selected action and an engine-neutral capability contract | A bounded engine command, safe fallback, and execution receipt |
-| **Verify** | Execution receipts, correctness signals, and matched outcomes | Provenance, SLO/quality/cost effect, and an explicit continue, revise, or stop decision |
+| **Report** | Execution receipts, correctness signals, and measured outcomes | Traceable SLO, quality, cost, and fallback results |
 
 Each decision episode is recorded as **state -> action and reason -> actuation
-receipt -> matched outcome -> stop/go**. This makes policy behavior reviewable
+receipt -> measured outcome**. This makes policy behavior reviewable
 across engines, workloads, and hardware rather than hiding it in ad hoc serving
 scripts.
 
@@ -69,8 +69,8 @@ Control-plane projects may live in different GitHub organizations while
 sharing the same RIDE-Lab research architecture. Repository location does not
 change research-family membership.
 
-Repository access follows each project's release stage; a listed private
-repository may require organization access until its public release.
+Project names and technical roles remain visible throughout development;
+repository links appear only after public release.
 
 The current project names, links, research status, and evidence boundaries are
 maintained in the website's
@@ -90,25 +90,19 @@ public pages.
 - **Quality and economics:** quality bounds, token budgets, service risk, cost,
   and safe fallback.
 
-## Evidence Contract
+## Operational Accountability
 
-Every research line must connect observable state to an action, correctness
-oracle, matched comparison, and stopping condition. Smoke tests, simulations,
-replays, projected profiles, and dry runs are labeled as such and are never
-reported as real online effects. Negative results close mechanisms, not
-automatically the underlying systems question.
+RIDE keeps decision inputs, selected actions, engine receipts, and measured
+outcomes traceable across workloads and backends. This makes correctness,
+latency, quality, cost, and fallback behavior visible to both operators and
+researchers.
 
-## Incubation and Graduation
+## Project Development
 
-Projects may begin in private incubation, move to
-[IntelliStream](https://github.com/intellistream) for a second incubation
-stage, and graduate to the organization that best matches their mature
-technical ownership. Private incubation locations are not part of the
-displayed portfolio.
-
-Graduation requires a stable abstraction, named maintainers, reproducible
-evaluation, evidence-bounded claims, documentation, tests, licensing, and a
-sustainable release path.
+Projects retain independent owners and repositories while sharing the RIDE
+control-plane architecture. Public releases include a clear abstraction,
+named maintainers, reproducible evaluation, documentation, tests, licensing,
+and a sustainable release path.
 
 ## Program Leadership
 
