@@ -1,109 +1,104 @@
 # RIDE Lab
 
-RIDE Lab builds agent-native systems on vLLM-HUST and stewards the core repositories
-of [SAGE](https://sage.org.ai/).
+**An open, agent-native control plane above LLM inference engines.**
 
-SAGE — **Streaming-Augmented Generative Execution** — is the shared flagship product
-and technical vision of the IntelliStream research ecosystem: applying
-streaming-computing principles to LLM inference and agent execution.
+RIDE Lab studies the policy, coordination, and evidence layer between agent
+workflows and inference engines. Engines execute prefill, decode, cache, and
+communication paths. RIDE observes workload intent and live system state, then
+decides what should run, where, when, with which state, and under which SLO,
+quality, cost, and correctness contract.
 
-Our research spans agent programming and orchestration, tool use, RAG, memory,
-evaluation, application-level state, real workloads, and reproducible end-to-end
-benchmarks. RIDE is the lab identity, not an additional runtime layer: products and
-research projects call vLLM-HUST directly or through SAGE.
+[Website](https://ride-lab.github.io/) ·
+[Members](https://ride-lab.github.io/members.html) ·
+[GitHub organization](https://github.com/RIDE-Lab)
 
-SAGE product website: [sage.org.ai](https://sage.org.ai/)
+## Why Agent-Native?
 
-## Stewardship, Not Exclusive Ownership
-
-The SAGE core series lives under the `RIDE-Lab` GitHub namespace because RIDE Lab is
-its principal engineering steward. That namespace is an operational home for code,
-reviews, releases, and product documentation; it does not make SAGE a RIDE-exclusive
-product. DataSys and vLLM-HUST keep their own technical ownership while contributing
-the data-system and inference capabilities that SAGE integrates.
+Agent workloads are not interchangeable chat requests. They expose DAG
+readiness, tool waits, branches, resumptions, deadlines, quality bounds,
+context reuse, persistent state, and recovery intent. An agent-native inference
+control plane makes those signals explicit inputs to serving decisions instead
+of hiding them behind a request-only API.
 
 ## System Boundary
 
 ```text
-Sage Mate and other applications
+Agents, workflows, applications
               |
               v
-        SAGE and research systems
+RIDE: observe -> decide -> actuate -> verify
               |
               v
-          vLLM-HUST
+LLM inference engines and serving runtimes
+              |
+              v
+Accelerators, memory, storage, and networks
 ```
 
-RIDE repositories own caller-side agent systems, policies, workloads, and evaluations.
-Model execution, KV-cache implementation, decode scheduling, kernels, compilation, and
-hardware backends remain in [vLLM-HUST](https://github.com/vllm-hust).
+RIDE owns above-engine decisions: admission, scheduling, routing, placement,
+budgeting, state/KV policy, recovery, and evidence. It is not another inference
+engine. Engine patches are admitted only as minimal reusable telemetry or
+actuation seams; kernels, transport implementations, compiler internals, and
+hardware backends remain execution-plane work.
 
-## Ecosystem
+## Research Portfolio
 
-- [IntelliStream](https://github.com/intellistream) incubates early research ideas across the ecosystem.
-- **RIDE Lab** conducts agent-native systems research and turns mature results into open-source products.
-- **SAGE** is the ecosystem's shared flagship product for streaming-augmented LLM and agent execution; RIDE Lab stewards its core repositories and agent-facing surfaces.
-- [DataSys](https://github.com/DataSysResearch) provides framework-neutral stream, graph, vector, index, update, query, and benchmark infrastructure.
-- [vLLM-HUST](https://github.com/vllm-hust) develops model execution, KV/cache scheduling, compilation, kernels, and hardware acceleration.
+Control-plane projects may live in different GitHub organizations while
+sharing the same RIDE-Lab research architecture. Repository location does not
+change research-family membership.
 
-## SAGE Core Stewardship
+Active incubation lines remain anonymous while their repositories and papers
+are private. RIDE Lab publishes a project name, owner, repository link, and
+evidence summary only after the project reaches its explicit release gate.
 
-### SAGE
+## Decision Domains
 
-- [SAGE](https://github.com/RIDE-Lab/SAGE) - the shared product core, stewarded by RIDE Lab.
-- [SAGE Docs](https://github.com/RIDE-Lab/SAGE-Docs) - product documentation and the source for [sage.org.ai](https://sage.org.ai/).
-- [SAGE Agentic](https://github.com/RIDE-Lab/sage-agentic)
-- [SAGE RAG](https://github.com/RIDE-Lab/sage-rag)
-- [SAGE Eval](https://github.com/RIDE-Lab/sage-eval)
-- [SAGE Studio](https://github.com/RIDE-Lab/sage-studio)
-- [SAGE Tutorials](https://github.com/RIDE-Lab/sage-tutorials)
+- **Workflow and SLO:** DAG scheduling, admission, deadlines, fairness, and
+  capacity allocation.
+- **Routing and placement:** backend, replica, cache-holder, model, and
+  continuation placement.
+- **State and KV:** reuse prediction, materialization, recomputation, tiering,
+  recovery, and lifecycle control.
+- **Quality and economics:** quality bounds, token budgets, service risk, cost,
+  and safe fallback.
 
-#### Product Modules and Integrations
+## Evidence Contract
 
-- [SAGE Agent for VS Code](https://github.com/RIDE-Lab/sage-agent-vscode)
-- [SAGE Agentic Tool Use](https://github.com/RIDE-Lab/sage-agentic-tooluse)
-- [SAGE Examples](https://github.com/RIDE-Lab/sage-examples)
-- [SAGE Finetune](https://github.com/RIDE-Lab/sage-finetune)
-- [SAGE GitHub Manager](https://github.com/RIDE-Lab/sage-github-manager)
-- [SAGE Intent Library](https://github.com/RIDE-Lab/sage-libs-intent)
-- [SAGE Refiner](https://github.com/RIDE-Lab/sageRefiner)
-- [SAGE PyPI](https://github.com/RIDE-Lab/sagepypi)
-- [SAGE Wiki](https://github.com/RIDE-Lab/sage-wiki)
+Every research line must connect observable state to an action, correctness
+oracle, matched comparison, and stopping condition. Smoke tests, simulations,
+replays, projected profiles, and dry runs are labeled as such and are never
+reported as real online effects. Negative results close mechanisms, not
+automatically the underlying systems question.
 
-## Applications
+## Incubation and Graduation
 
-- [Sage Mate](https://github.com/RIDE-Lab/sage-mate) - a continuously running agent application built with SAGE and backed by vLLM-HUST.
+Projects may begin in private incubation, move to
+[IntelliStream](https://github.com/intellistream) for a second incubation
+stage, and graduate to the organization that best matches their mature
+technical ownership. Public pages do not expose private incubation locations,
+project identities, or repository links before release.
 
-## Research Projects and Benchmarks
+Graduation requires a stable abstraction, named maintainers, reproducible
+evaluation, evidence-bounded claims, documentation, tests, licensing, and a
+sustainable release path.
 
-- [SAGE Benchmark](https://github.com/RIDE-Lab/sage-benchmark)
-- [Agentic Tool-use Benchmark](https://github.com/RIDE-Lab/sage-agentic-tooluse-benchmark)
-- [Agentic Tool-use SIAS](https://github.com/RIDE-Lab/sage-agentic-tooluse-sias)
-- [RAG Benchmark](https://github.com/RIDE-Lab/sage-rag-benchmark)
-- [Refiner Benchmark](https://github.com/RIDE-Lab/sage-refiner-benchmark)
-- [Wiki-link Retrieval](https://github.com/RIDE-Lab/wiki-link-retrieval)
-- [Neuromem Benchmark](https://github.com/RIDE-Lab/neuromem-bench)
+## Program Leadership
 
-### Achievements
+[Mao Yancan](https://github.com/yancanmao) leads RIDE-Lab operations and the
+Inference Control Plane program. Project-level academic ownership remains with
+each named project owner.
 
-- [Complete publication timeline](https://sage.org.ai/achievements/) - published
-  work, public evidence, corresponding repositories, and explicitly labeled
-  author-reported acceptances.
-- [SAGE](https://openreview.net/forum?id=TXcFJdT7at) - ICML 2026
-  dataflow-native framework for modular, controllable, and transparent
-  LLM-augmented reasoning.
-- [Neuromem](https://openreview.net/forum?id=mO7DgwFFVe) - ICML 2026
-  benchmark and lifecycle decomposition for external memory in LLM systems.
-- [FlowRAG](https://doi.org/10.1145/3774904.3792361) - WWW 2026 continual
-  retriever adaptation for evolving corpora.
-- [Demonstrating SAGE](https://sage.org.ai/achievements/) - ICPP 2026 demo
-  acceptance reported by the authors; the public program or proceedings record
-  is pending.
+## Related Technical Homes
 
-## Project Graduation
+- [SAGE](https://sage.org.ai/) provides programmable agent and workflow
+  surfaces.
+- [vLLM-HUST](https://github.com/vllm-hust) develops inference-engine and
+  hardware-execution capabilities.
+- [DataSys](https://github.com/DataSysResearch) develops framework-neutral data
+  systems.
+- [IntelliStream](https://github.com/intellistream) incubates cross-layer
+  research before graduation.
 
-Projects graduate from IntelliStream when they have a clear public abstraction, named maintainers, reproducible evaluation, documentation, tests, licensing, and a sustainable release path.
-
-RIDE Lab is not a data-engine or model-runtime umbrella. Framework-neutral data systems belong in DataSys, while model-runtime and hardware-execution projects belong in vLLM-HUST.
-
-See our [contribution guide](https://github.com/RIDE-Lab/.github/blob/main/CONTRIBUTING.md), [security policy](https://github.com/RIDE-Lab/.github/blob/main/SECURITY.md), and [support guide](https://github.com/RIDE-Lab/.github/blob/main/SUPPORT.md).
+See our [contribution guide](https://github.com/RIDE-Lab/.github/blob/main/CONTRIBUTING.md),
+[security policy](https://github.com/RIDE-Lab/.github/blob/main/SECURITY.md),
+and [support guide](https://github.com/RIDE-Lab/.github/blob/main/SUPPORT.md).
