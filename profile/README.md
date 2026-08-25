@@ -50,22 +50,12 @@ change research-family membership.
 Repository access follows each project's release stage; a listed private
 repository may require organization access until its public release.
 
-- [SLO-Aware Agent Serving](https://github.com/intellistream/slo-aware-agent-serving) —
-  admission, calibrated prediction, fairness, and resource allocation for
-  mixed agent workloads.
-- [Agentic KV](https://github.com/intellistream/agentic-kv) — dependency-aware
-  future-reuse and recompute-cost prediction for agent state and KV decisions.
-- [VAMOS](https://github.com/RIDE-Lab/vamos) — VRAM-aware multi-model
-  orchestration under serving SLOs.
-- [Token-Budget Governor](https://github.com/intellistream/vllm-token-budget-governor-plugin) —
-  token-budget admission and overload control.
-- [Agent State Tiering](https://github.com/intellistream/vllm-agent-state-tiering) —
-  workflow-aware placement and prefetch across memory and storage tiers.
-- [Prefix Cache Routing Reliability](https://github.com/intellistream/prefix-cache-routing-reliability) —
-  failure-safe distributed prefix-cache routing and recovery.
-- [MottoServe](https://github.com/intellistream/llm-serving-motto-lab) — a
-  bounded evidence-and-analysis line; its historical planner mechanism is
-  stopped and is not presented as an active positive result.
+The current project names, links, research status, and evidence boundaries are
+maintained in the website's
+[versioned portfolio manifest](https://github.com/RIDE-Lab/RIDE-Lab.github.io/blob/main/data/control-plane-projects.json)
+and rendered on the [RIDE Lab homepage](https://ride-lab.github.io/#portfolio).
+This keeps one source of truth instead of duplicating project records across
+public pages.
 
 ## Decision Domains
 
